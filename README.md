@@ -11,3 +11,7 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
+
+Yo yo, i am a smart contract, what about you ?
+Contract deployed to:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+
