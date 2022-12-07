@@ -18,8 +18,8 @@ const runMain = async () => {
   try {
     await main()
     process.exit(0)
-  } catch (e) {
-    console.log(e)
+  } catch (error) {
+    console.log(error)
     process.exit(1)
   }
 }

@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 
 contract WavePortal {
+    // test2
     uint256 totalWaves;
 
     constructor(){

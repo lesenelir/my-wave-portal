@@ -12,6 +12,6 @@ npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
 
-Yo yo, i am a smart contract, what about you ?
-Contract deployed to:  0x5FbDB2315678afecb367f032d93F642f64180aa3
-
+Deploying contracts with account:  0xd69220df4d1Cbe442b2Da76221dDe67F3cDEB21d
+Account balance:  674334595965738285
+WavePortal address:  0x8010543B53156DA38DDbeda1818E6273673eB7d2
