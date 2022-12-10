@@ -15,19 +15,22 @@ const main = async  () => {
 
   await waveContract.getTotalWaves()
 
-  const firstWaveTxn = await waveContract.wave()
+  const firstWaveTxn = await waveContract.wave('A message !')
   await firstWaveTxn.wait()
   await waveContract.getTotalWaves()
   waveAddressArray.push(firstWaveTxn.from)
 
   for (let i = 1; i < signers.length; i++) {
-    const tempWaveTxn = await waveContract.connect(signers[i]).wave()
+    const tempWaveTxn = await waveContract.connect(signers[i]).wave('wave message')
     await tempWaveTxn.wait()
     await waveContract.getTotalWaves()
     waveAddressArray.push(tempWaveTxn.from)
   }
 
   console.log('All wave addresses: ', waveAddressArray)
+
+  let allWaves = await waveContract.getAllWaves()
+  console.log(allWaves)
 
   // const secondWaveTxn = await waveContract.connect(signers[1]).wave()
   // await secondWaveTxn.wait()
