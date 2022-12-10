@@ -7,7 +7,9 @@ const main = async  () => {
   const waveAddressArray = []
 
   const waveContractFactory = await hre.ethers.getContractFactory('WavePortal')
-  const waveContract = await waveContractFactory.deploy()
+  const waveContract = await waveContractFactory.deploy({
+    value: hre.ethers.utils.parseEther("0.1")
+  })
   await waveContract.deployed()
 
   console.log('Contract deployed to: ', waveContract.address) // 合约地址
@@ -15,10 +17,18 @@ const main = async  () => {
 
   await waveContract.getTotalWaves()
 
+  // get contract balance to see if my contract has a balance of 0.1 eth
+  let contractBalance = await hre.ethers.provider.getBalance(waveContract.address)
+  console.log("Contract balance: ", hre.ethers.utils.formatEther(contractBalance))
+
+  // send wave
   const firstWaveTxn = await waveContract.wave('A message !')
   await firstWaveTxn.wait()
   await waveContract.getTotalWaves()
   waveAddressArray.push(firstWaveTxn.from)
+
+  contractBalance = await hre.ethers.provider.getBalance(waveContract.address)
+  console.log("Contract balance: ", hre.ethers.utils.formatEther(contractBalance))
 
   for (let i = 1; i < signers.length; i++) {
     const tempWaveTxn = await waveContract.connect(signers[i]).wave('wave message')
@@ -28,6 +38,10 @@ const main = async  () => {
   }
 
   console.log('All wave addresses: ', waveAddressArray)
+
+  // get contract balance to see what happened!
+  contractBalance = await hre.ethers.provider.getBalance(waveContract.address)
+  console.log('Contract balance: ', hre.ethers.utils.formatEther(contractBalance))
 
   let allWaves = await waveContract.getAllWaves()
   console.log(allWaves)
