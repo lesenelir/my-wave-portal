@@ -25,3 +25,10 @@ WavePortal address:  0x208ed704b6A7b6f0A10a9d26d794e375e8c0bFdb
 New2 - add Fund:
 WavePortal address:  0x2556A8D40c07043Aa92f8731ECa2afb8f523B3ea
 
+New3 - add winner and prevent spammers
+Deploying contracts with account:  0xd69220df4d1Cbe442b2Da76221dDe67F3cDEB21d
+Account balance:  1550447134829086610
+WavePortal address:  0xf1eC6C0D20134c756fC24598777D017fbF3140F4
+Contract balance:  0.01
+
+
